@@ -1,56 +1,69 @@
+import * as React from 'react';
 import "./datatable.scss";
-import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import BoltIcon from '@mui/icons-material/Bolt';
+import BorderAllIcon from '@mui/icons-material/BorderAll';
 
-const Datatable = () => {
-  const [data, setData] = useState(userRows);
+export default function ColorToggleButton() {
+  const [alignment, setAlignment] = React.useState('web');
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+  const handleChange = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
+  const [auth, setAuth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleChangeshow = (event) => {
+    setAuth(event.target.checked);
   };
 
-  const actionColumn = [
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
-            </Link>
-            <div
-              className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
-            >
-              Delete
-            </div>
-          </div>
-        );
-      },
-    },
-  ];
-  return (
-    <div className="datatable">
-      <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
-          Add New
-        </Link>
-      </div>
-      <DataGrid
-        className="datagrid"
-        rows={data}
-        columns={userColumns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
-        checkboxSelection
-      />
-    </div>
-  );
-};
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-export default Datatable;
+  return (
+    <Box container className='option_main' sx={{ flexGrow: 1 }}  sx={{ padding: '0px 30px' }}>
+       <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="stretch"
+              spacing={2}>
+             
+       <Typography variant="h4" gutterBottom>
+       <b>Pools</b>
+      </Typography>
+      <FormGroup>
+        <FormControlLabel
+        label='Show potential P&L'
+          control={
+            <Switch
+              checked={auth}
+              onChange={handleChangeshow}
+              aria-label="login switch"
+            />
+          }
+          
+        />
+      </FormGroup>
+      
+            </Stack>
+        <ToggleButtonGroup
+          color="primary"
+          value={alignment}
+          exclusive
+          onChange={handleChange}
+          aria-label="Platform"
+        >
+        <ToggleButton value="allpool" ><BorderAllIcon/>All Pools</ToggleButton>
+        <ToggleButton value="smartpool"> <BoltIcon/>Smart Deposit</ToggleButton>
+      </ToggleButtonGroup>
+      </Box>
+  );
+}

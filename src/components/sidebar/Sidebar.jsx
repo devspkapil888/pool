@@ -29,13 +29,13 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <Link to="/options" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Option</span>
             </li>
           </Link>
-          <Link to="/pools" style={{ textDecoration: "none" }}>
+          <Link to="/products" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Pools</span>

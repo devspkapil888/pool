@@ -40,6 +40,7 @@ import Icon from "react-crypto-icons";
 
 
 
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -98,7 +99,7 @@ export default function RecipeReviewCard() {
               spacing={2}>
              
        <Typography variant="h4" gutterBottom>
-       Options
+       <b>Options</b>
       </Typography>
       <FormGroup>
         <FormControlLabel
