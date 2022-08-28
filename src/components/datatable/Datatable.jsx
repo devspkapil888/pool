@@ -1,5 +1,6 @@
 import * as React from 'react';
 import "./datatable.scss";
+import Featured from "../../components/featured/Featured";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Typography from '@mui/material/Typography';
@@ -64,6 +65,8 @@ export default function ColorToggleButton() {
         <ToggleButton value="allpool" ><BorderAllIcon/>All Pools</ToggleButton>
         <ToggleButton value="smartpool"> <BoltIcon/>Smart Deposit</ToggleButton>
       </ToggleButtonGroup>
+      <Featured/>
       </Box>
+
   );
 }
