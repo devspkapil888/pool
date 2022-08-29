@@ -175,15 +175,9 @@ export default function RecipeReviewCard() {
                 <Tab label="Aug 30" />
                 <Tab label="Sep 2" />
               </Tabs>
-              <Tabs value={value} onChange={handleChange}>
-                <Tab label="Sep 9" />
-                <Tab label="Sep 16" />
-                <Tab label="Sep 23" />
-                <Tab label="Oct 28" />
-              </Tabs>
             </Box>
           <DatePicker />
-          <FormControl fullWidth  >
+          <FormControl fullWidth  sx={{ pb: 2}}>
             <Stack
               direction="row"
               justifyContent="space-between"

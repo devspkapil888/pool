@@ -54,21 +54,7 @@ const Sidebar = () => {
               <span>Swap & Bridge</span>
             </li>
           </ul>
-        <div className="sticky"style={{ float:"left", clear: "both", position: "absolute", bottom: "0"}} >
-          <ul>
-          <li>
-          <InsertChartIcon className="icon" />
-            <span>Analytics</span>
-          </li>
-          <li>
-            <DocumentScannerIcon className="icon" />
-            <span>Documentation</span>
-          </li>
-          <li>
-            <WorkIcon className="icon" />
-            <span>Careers</span>
-          </li>
-        </ul>
+        <div className="sticky"style={{ float:"left", clear: "both", position: "fixed", bottom: "0"}} >
         <div className="bottom">
         <Box
             sx={{
